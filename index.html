@@ -1,15 +1,61 @@
 <!DOCTYPE html>
 <html>
-<head>
-   <meta charset="utf-8"/>
-   <title>Assignment 2</title>
-   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800" rel="stylesheet">
-   <link rel="stylesheet" href="css/main.css">
-   <script src="js/assign2.js"></script> 
-</head>
-<body>
-    <main>
-      <p>Assignment 2</p>
-    </main>
-</body>
-</html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>Assignment 2</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="css/assign2main.css?v=1">
+  </head>
+  <body>
+    <div id="main-container">
+      <header>
+        <h1 id="logo">Assignment 2</h1>
+        <div class="header-buttons">
+          <div id="header-search-button">Search</div>
+          <div id="header-song-details-button">Song Details</div>
+          <div id="header-playlist-button">Playlist</div>
+        </div>
+      </header>
+      <main>
+        <div class="search-page-container">
+          <section id="basic-song-search">
+            <h1>Basic Song Search</h1>
+            <div id="search-options">
+              <p>Title</p>
+              <p>Artist</p>
+              <p>Genre</p>
+            </div>
+            <div class="search-buttons">
+              <p>Clear</p>
+              <p>Filter</p>
+            </div>
+          </section>
+          <section id="browse-search-results">
+            <h1>Browse / Search Results</h1>
+            <div>
+              <h2>Title</h2>
+              <h2>Artist</h2>
+              <h2>Year</h2>
+              <h2>Genre</h2>
+              <h2>Popularity</h2>
+            </div>
+            <section>
+              <p>The Final Countdown</p>
+              <p>DJ Khaled</p>
+              <p>1234</p>
+              <p>Soft Rock</p>
+              <p>100000</p>
+            </section>
+          </section>
+        </div>
+        <article class="song-details-page">
+          <h1>song-details</h1>
+        </article>
+        <article class="playlist-page">
+          <h1>Playlist</h1>
+        </article>
+      </main>
+    </div>
+  </body>
+  <script src="js/assign2.js"></script>
+  </html>

@@ -1,0 +1,177 @@
+html {
+
+
+}
+body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    margin: auto;
+    /*text-align: center;*/
+}
+#main-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+}
+header {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0;
+    width: 100vw;
+    height: 10vh;
+    background-image: linear-gradient(#b8b8b8, #c0c0c0);
+    color: yellowgreen; /* debug color */
+}
+#logo {
+    color: dodgerblue;
+    margin: 0;
+    width: 600px;
+    
+}
+.header-buttons {
+    display: flex;
+    width: 100vw;
+    gap: 8vw;
+    margin: 0;
+    color: whitesmoke;
+}
+.header-buttons div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: darkgray;
+    width: 10vw;
+    height: 6vh;
+    margin: 0;
+    font-size: 24px;
+    border-radius: 10px;
+    border-color: whitesmoke;
+    box-shadow: 3px 3px #333333;
+}
+.header-button-current-page{
+    color: blue;
+}
+main {
+    display: flex;
+    margin-top: 50px;
+    color: orange;
+}
+.search-page-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 1em;
+    width: 100vw;
+    flex-shrink: 100;
+    flex-grow: 1;
+    height: 80vh;
+}
+#basic-song-search {
+    background-color: #999999;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 10px;
+    flex-grow: 0;
+    margin-left: 10px;
+    width: 25vw;
+    height: fit-content;
+}
+#basic-song-search h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#search-options{
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#search-options p{
+    background-color: lightgray;
+    margin: 10px;
+    padding: 10px;
+}
+.search-buttons {
+    display: flex;
+    gap: 4vw;
+    margin: auto;
+    padding: 0px 20px 0px 20px;
+    color: whitesmoke;
+    justify-content: center;
+}
+.search-buttons p{
+    display: flex;
+    align-items: center;
+    background-color: darkgray;
+    height: 60px;
+    margin: auto;
+    padding: 0px 20px 0px 20px;
+    font-size: 24px;
+    border-radius: 10px;
+    border-color: whitesmoke;
+    box-shadow: 3px 3px #333333;
+}
+#browse-search-results {
+    background-color: #888888;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-right: 10px;
+    flex-grow: 1;
+    padding: 20px;
+    overflow: scroll; 
+}
+/* List header */
+#browse-search-results div{
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #a0a0a0;
+    padding: 10px;
+}
+/* List row */
+#browse-search-results section{
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #b8b8b8;
+    padding: 10px;
+    margin-top: 5px;
+}
+#browse-search-results div h2{
+    width: 15%;
+}
+#browse-search-results section p{
+    width: 15%;
+}
+/* BACKGROUND GRADIENTS FROM ASSIGN01
+#home-top-genres{
+    background-image: linear-gradient(rgb(238, 255, 238), rgb(198, 198, 255));
+}
+#home-top-artists{
+    background-image: linear-gradient(rgb(238, 246, 255), rgb(255, 249, 198));
+}
+#home-most-popular-songs{
+    background-image: linear-gradient(rgb(255, 238, 245), rgb(232, 198, 255));
+}
+#home-one-hit-wonders{
+    background-image: linear-gradient(rgb(238, 244, 255), rgb(198, 198, 255));
+}
+#home-longest-acoustic-songs{
+    background-image: linear-gradient(rgb(238, 255, 238), rgb(198, 255, 201));
+}
+#home-at-the-club{
+    background-image: linear-gradient(rgb(221, 171, 224), rgb(159, 231, 219));
+}
+#home-running-songs{
+    background-image: linear-gradient(rgb(255, 255, 238), rgb(198, 255, 247));
+}
+#home-studying{
+    background-image: linear-gradient(rgb(255, 253, 238), rgb(255, 235, 198));
+}
+*/
+
+.hidden{
+    display: none;
+}
