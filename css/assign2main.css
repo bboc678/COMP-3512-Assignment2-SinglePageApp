@@ -84,16 +84,22 @@ main {
     align-items: center;
 }
 #search-options{
+    display: flex;
+    flex-wrap: nowrap;
     color: white;
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
+    justify-content: center;
 }
 #search-options p{
     background-color: lightgray;
     margin: 10px;
     padding: 10px;
+}
+#search-input-boxes {
+    margin-left: 5%;
 }
 .search-buttons {
     display: flex;

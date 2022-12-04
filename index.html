@@ -20,14 +20,28 @@
         <div class="search-page-container">
           <section id="basic-song-search">
             <h1>Basic Song Search</h1>
-            <div id="search-options">
-              <p>Title</p>
-              <p>Artist</p>
-              <p>Genre</p>
-            </div>
+            <section id="search-options">
+              <form id="search-radio-buttons">
+                <input type="radio" id="name-search" name="search-choice" value="1" checked>
+                <label for="name-search">Name</label>
+                <br>
+                <input type="radio" id="artist-search" name="search-choice" value="2">
+                <label for="artist-search">Artist</label>
+                <br>
+                <input type="radio" id="genre-search" name="search-choice" value="3">
+                <label for="genre-search">Genre</label>
+              </form>
+              <form id="search-input-boxes">
+                <input type="text" id="search-option-1" name="search-choice" value="">
+                <br>
+                <input type="text" id="search-option-2" name="search-choice" value="">
+                <br>
+                <input type="text" id="search-option-3" name="search-choice" value="">
+              </form>
+            </section>
             <div class="search-buttons">
-              <p>Clear</p>
-              <p>Filter</p>
+              <p id="clear-search-button">Clear</p>
+              <p id="filter-search-button">Filter</p>
             </div>
           </section>
           <section id="browse-search-results">

@@ -28,7 +28,7 @@ if (songsAPIDataString == null){ // API has not yet been fetched
 }else{
    document.getElementById('logo').appendChild(document.createTextNode(" (using existing data)"));
    console.log("Using existing data");
-   console.log(songsAPIDataString);
+   //console.log(songsAPIDataString);
 }
 
 /* Helper function to reduce clutter from writing document.getElementById() */
@@ -50,6 +50,7 @@ function makePNode(nodeText){
 
 /* Header navigation button functionality */
 document.getElementById("header-search-button").addEventListener("mouseup", function(){
+   refreshSearchBrowsePage(0, '');
    visitPage("search-page-container");
 });
 
@@ -61,33 +62,86 @@ document.getElementById("header-playlist-button").addEventListener("mouseup", fu
    visitPage("playlist-page");
 });
 
-function populateSearchBrowsePage(searchType, search){
-   //searchType 0 = Title, 1 = Artist, 2 = Genre
+//Song search buttons
+document.getElementById("clear-search-button").addEventListener("mouseup", function(){
+   console.log("TODO Clear");
+   getById("search-option-1").value = '';
+   getById("search-option-2").value = '';
+   getById("search-option-3").value = '';
+   getById("name-search").checked = true;
+   getById("artist-search").checked = false;
+   getById("genre-search").checked = false;
+   refreshSearchBrowsePage(0, '');
+});
+
+document.getElementById("filter-search-button").addEventListener("mouseup", function(){
+   let searchType = "0";
+   let inputBox;
+   let searchText;
+   for(button of getById("search-radio-buttons")){
+      if(button.checked){
+         searchType = Number(button.value);
+         inputBox = "search-option-" + searchType.toString();
+         searchText = getById(inputBox).value.toString();
+      }
+   }
+   console.log(searchType);
+   console.log(searchText);
+   refreshSearchBrowsePage(searchType, searchText);
+});
+
+function refreshSearchBrowsePage(searchType, search){
+   //searchType 0 = None, 1 = Title, 2 = Artist, 3 = Genre
    let songsAPI = JSON.parse(songsAPIDataString);
    let resultsContainer = getById("browse-list");
+   resultsContainer.replaceChildren(); //deletes all previous rows
+   let validSong = false;
    for(let apiSong of songsAPI){
-      let thisRow = document.createElement("li");
-      thisRow.classList.add("browse-list-row");
-      if(lastListRowColorOne){
-         thisRow.classList.add("browse-list-row-color-two");
-         lastListRowColorOne = false;
+      validSong = false;
+      switch(searchType){
+         case 0:
+            validSong = true;
+            break;
+         case 1:
+            if(apiSong.title.toUpperCase().includes(search.toUpperCase())){
+               validSong = true;
+            }
+            break;
+         case 2:
+            if(apiSong.artist.name.toUpperCase().includes(search.toUpperCase())){
+               validSong = true;
+            }
+            break;
+         case 3:
+            if(apiSong.genre.name.toUpperCase().includes(search.toUpperCase())){
+               validSong = true;
+            }
+            break;
       }
-      else{
-         thisRow.classList.add("browse-list-row-color-one");
-         lastListRowColorOne = true;
+      if (validSong) {
+         let thisRow = document.createElement("li");
+         thisRow.classList.add("browse-list-row");
+         if (lastListRowColorOne) {
+            thisRow.classList.add("browse-list-row-color-two");
+            lastListRowColorOne = false;
+         }
+         else {
+            thisRow.classList.add("browse-list-row-color-one");
+            lastListRowColorOne = true;
+         }
+
+         //let titleText = songsAPI[c].title;
+         thisRow.appendChild(makePNode(apiSong.title));
+         thisRow.appendChild(makePNode(apiSong.artist.name));
+         thisRow.appendChild(makePNode(apiSong.year));
+         thisRow.appendChild(makePNode(apiSong.genre.name.toUpperCase()));
+         thisRow.appendChild(makePNode(apiSong.details.popularity));
+         resultsContainer.appendChild(thisRow);
       }
-      
-      //let titleText = songsAPI[c].title;
-      thisRow.appendChild(makePNode(apiSong.title));
-      thisRow.appendChild(makePNode(apiSong.artist.name));
-      thisRow.appendChild(makePNode(apiSong.year));
-      thisRow.appendChild(makePNode(apiSong.genre.name.toUpperCase()));
-      thisRow.appendChild(makePNode(apiSong.details.popularity));
-      resultsContainer.appendChild(thisRow);
    }
 }
 
-populateSearchBrowsePage();
+refreshSearchBrowsePage(0, '');
 visitPage("search-page-container");
 
 //visitSearchPage();
