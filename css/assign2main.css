@@ -66,7 +66,7 @@ main {
     width: 100vw;
     flex-shrink: 100;
     flex-grow: 1;
-    height: 80vh;
+
 }
 #basic-song-search {
     background-color: #999999;
@@ -122,29 +122,48 @@ main {
     margin-right: 10px;
     flex-grow: 1;
     padding: 20px;
+}
+#browse-list{
+    height: 63vh;
     overflow: scroll; 
+    padding: 0;
+    margin: 1% 0 0 0;
 }
 /* List header */
-#browse-search-results div{
+#browse-list-header{
     display: flex;
     flex-wrap: nowrap;
     background-color: #a0a0a0;
-    padding: 10px;
+    padding: 0;
+    justify-content: space-around;
 }
 /* List row */
-#browse-search-results section{
+.browse-list-row{
+    color: whitesmoke;
     display: flex;
     flex-wrap: nowrap;
     background-color: #b8b8b8;
-    padding: 10px;
+    padding: 5px;
     margin-top: 5px;
+    justify-content: space-around;
+    align-items: center;
 }
-#browse-search-results div h2{
-    width: 15%;
+#browse-list-header h2 {
+    width: 18%;
 }
-#browse-search-results section p{
-    width: 15%;
+.browse-list-row p{
+    width: 18%;
+    justify-items: center;
 }
+.browse-list-row-color-one{
+    color: rgba(255, 255, 255);
+}
+.browse-list-row-color-two{
+    color: rgb(238, 231, 223);
+}
+
+
+
 /* BACKGROUND GRADIENTS FROM ASSIGN01
 #home-top-genres{
     background-image: linear-gradient(rgb(238, 255, 238), rgb(198, 198, 255));

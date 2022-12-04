@@ -1,4 +1,6 @@
 //localStorage.removeItem("songsAPIData");
+var lastListRowColorOne = false;
+
 let songsAPIDataString = localStorage.getItem("songsAPIData");
 if (songsAPIDataString == null){ // API has not yet been fetched
    /* url of song api --- https versions hopefully a little later this semester */	
@@ -59,16 +61,27 @@ document.getElementById("header-playlist-button").addEventListener("mouseup", fu
    visitPage("playlist-page");
 });
 
-function populateSearchBrowsePage(){
+function populateSearchBrowsePage(searchType, search){
+   //searchType 0 = Title, 1 = Artist, 2 = Genre
    let songsAPI = JSON.parse(songsAPIDataString);
+   let resultsContainer = getById("browse-list");
    for(let apiSong of songsAPI){
-      let resultsContainer = getById("browse-search-results");
-      let thisRow = document.createElement("section");
+      let thisRow = document.createElement("li");
+      thisRow.classList.add("browse-list-row");
+      if(lastListRowColorOne){
+         thisRow.classList.add("browse-list-row-color-two");
+         lastListRowColorOne = false;
+      }
+      else{
+         thisRow.classList.add("browse-list-row-color-one");
+         lastListRowColorOne = true;
+      }
+      
       //let titleText = songsAPI[c].title;
       thisRow.appendChild(makePNode(apiSong.title));
       thisRow.appendChild(makePNode(apiSong.artist.name));
       thisRow.appendChild(makePNode(apiSong.year));
-      thisRow.appendChild(makePNode(apiSong.genre.name));
+      thisRow.appendChild(makePNode(apiSong.genre.name.toUpperCase()));
       thisRow.appendChild(makePNode(apiSong.details.popularity));
       resultsContainer.appendChild(thisRow);
    }
