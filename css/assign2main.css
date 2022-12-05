@@ -23,10 +23,11 @@ header {
     flex-grow: 0;
     flex-shrink: 0;
     margin: 0;
+    margin-bottom: 0.5em;
     padding: 0;
     width: 100vw;
     height: 10vh;
-    background-image: linear-gradient(#b8b8b8, #c0c0c0);
+    background-image: linear-gradient(#555555, #464646);
     color: yellowgreen; /* debug color */
 }
 #logo {
@@ -47,7 +48,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: darkgray;
+    background-color: #464646;
     width: 10vw;
     height: 6vh;
     margin: 0;
@@ -71,19 +72,20 @@ header {
 
 }
 #basic-song-search {
-    background-color: #999999;
+    background-color: #555555;
     margin: auto;
     flex-grow: 0;
     width: 95vw;
     height: fit-content;
     padding: 0em 0em 1em 0em;
+    margin-bottom: 0.5em;
 }
 #basic-song-search h1{
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: #222222;
+    background-color: #363636;
     margin: 0;
     padding: 0.2em;
 }
@@ -115,7 +117,7 @@ header {
 .search-buttons p{
     display: flex;
     align-items: center;
-    background-color: darkgray;
+    background-color: #464646;
     height: 60px;
     margin: 0em 2em 0em 2em;
     padding: 0em 2em 0em 2em;
@@ -145,7 +147,7 @@ header {
     width: 20vw;
 }
 #browse-search-results {
-    background-color: #333333;;
+    background-color: #555555;;
     color: white;
     flex-grow: 1;
     padding: 0;
@@ -154,6 +156,9 @@ header {
 }
 #browse-container-header {
     text-align: center;
+    background-color: #363636;
+    padding: 0.2em 0em;
+    margin: auto
 }
 #browse-list{
     height: 63vh;
@@ -163,10 +168,10 @@ header {
 }
 /* List header */
 #browse-list-header{
-    color: orange;
+    color: #afcbf3;
     display: flex;
     flex-wrap: nowrap;
-    background-color: #444444;
+    background-color: #363636;
     padding: 0vw 1vw;
     justify-content: space-around;
     justify-items: center;
@@ -176,9 +181,9 @@ header {
     color: whitesmoke;
     display: flex;
     flex-wrap: nowrap;
-    background-color: #444444;
-    padding: 1vw;
-    margin-top: 5px;
+    background-color: #464646;
+
+    margin: 1vw;
     justify-content: space-around;
     align-items: center;
 }
@@ -203,44 +208,47 @@ header {
     color: white;
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: #555555;
     text-align: center;
 }
+/*SONG INFORMATION*/
 #song-view-container h1{
     text-align: center;
-    background-color: green;
+    background-color: #363636;
+    margin: 0;
 }
 #song-view-container p{
     padding: 0em;
 }
-#song-view-analysis {
-    display: flex;
-    flex-direction: column;
-    margin: 2em;
-    background-color: blue;
-}
+/*ANALYSIS DATA*/
 #song-view-analysis h1{
     margin: 0;
     padding: 0;
-    background-color: red;
+    background-color: #363636;
+}
+#song-view-analysis {
+    display: flex;
+    flex-direction: column;
+    margin: 0em 1em 1em 1em;
+    background-color: blue;
 }
 #song-view-analysis ul li{
     margin: 1em;
     padding: 0;
-    background-color: black;
+    background-color: #555555;
 }
 #song-view-top{
     display: flex;
     flex-direction: row;
-    background-color: grey;
+    background-color: #464646;
     justify-content: space-between;
-    margin: 2em;
-    padding: 1em 2em 1em 2em;
+    margin: 0.5em 1em;
+    padding: 0em 2em 0em 2em;
 }
 #song-view-bottom{
     display: flex;
     flex-direction: row;
-    background-color: grey;
+    background-color: #464646;
     justify-content: space-between;
 }
 /*
