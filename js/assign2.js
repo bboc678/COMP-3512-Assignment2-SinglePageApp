@@ -33,7 +33,7 @@ function initializeAPI() {
    let songsAPIDataString = localStorage.getItem("songsAPIData");
    if (songsAPIDataString == null) { // API has not yet been fetched
       /* url of song api --- https versions hopefully a little later this semester */
-      const api = 'http://www.randyconnolly.com/funwebdev/3rd/api/music/songs-nested.php'; //real API
+      const api = 'https://www.randyconnolly.com/funwebdev/3rd/api/music/songs-nested.php'; //real API
       //const api = 'js/sample-songs.json'; //testing API
       fetch(api)
          .then(response => {
