@@ -158,6 +158,16 @@ function initializeButtons() {
       console.log(searchText);
       refreshSearchBrowsePage(searchType, searchText);
    });
+
+   //Credits button
+   getById("header-credits-button").addEventListener("mouseenter", function(){
+      getById("credits").classList.remove("hidden");
+      console.log("showing");
+   });
+   getById("header-credits-button").addEventListener("mouseleave", function(){
+      getById("credits").classList.add("hidden");
+      console.log("hiding");
+   });
 }
 
 function refreshSongPage(showSong){

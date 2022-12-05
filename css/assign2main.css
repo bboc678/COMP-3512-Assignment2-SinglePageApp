@@ -43,7 +43,7 @@ header {
     margin: 0;
     color: whitesmoke;
 }
-.header-buttons div{
+.header-buttons section{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +60,27 @@ header {
 .header-button-current-page{
     color: blue;
 }
-
+#header-credits-button {
+    display: flex;
+    flex-direction: column;
+    overflow-y:auto;
+    position: absolute;
+    margin: 0;
+    left: 85%;
+    padding: 0;
+    height: fit-content;
+    text-align: flex-start;
+    min-height: 6vh;
+}
+#credits-url{
+    text-decoration: none;
+}
+#credits-url:visited{
+    color: #afcbf3;
+}
+#credits-url:hover{
+    color: #8bc6fc;
+}
 .search-page-container {
     display: flex;
     flex-direction: column;
