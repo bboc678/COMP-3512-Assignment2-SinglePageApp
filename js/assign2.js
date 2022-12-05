@@ -2,6 +2,7 @@
 
 let songsAPI; //Array containing all song / artist / genre information
 let browserResults; //Array containing song / artist / genre information from search
+let playlistSongs = [];
 let lastListRowColorOne = false;
 
 initializeAPI();
@@ -90,31 +91,42 @@ function refreshSearchBrowsePage(searchType, search){
       }
       if (validSong) {
          let thisRow = document.createElement("li");
-         thisRow.classList.add("browse-list-row");
-         if (lastListRowColorOne) {
-            thisRow.classList.add("browse-list-row-color-two");
-            lastListRowColorOne = false;
-         }
-         else {
-            thisRow.classList.add("browse-list-row-color-one");
-            lastListRowColorOne = true;
-         }
-
-         let titleText = makePNode(apiSong.title);
-         titleText.setAttribute('id', apiSong.song_id);
-         titleText.addEventListener("mouseup", function(){ //Button for visiting song page from list row 
-            refreshSongPage(this);
-            visitPage("song-view-page");
+         generateSongRow(thisRow, apiSong);
+         let playlistAdd = makePNode("Add");
+         playlistAdd.setAttribute('id', "add-" + apiSong.song_id);
+         playlistAdd.addEventListener("mouseup", function(){ //Button for adding song to playlist from row
+            let addId = this.parentElement.getAttribute('id');
+            let newPlaySong = songsAPI.find(song => song.song_id == addId);
+            playlistSongs.push(newPlaySong);
+            console.log(newPlaySong);
          });
-
-         thisRow.appendChild(titleText);
-         thisRow.appendChild(makePNode(apiSong.artist.name));
-         thisRow.appendChild(makePNode(apiSong.year));
-         thisRow.appendChild(makePNode(apiSong.genre.name.toUpperCase()));
-         thisRow.appendChild(makePNode(apiSong.details.popularity));
+         thisRow.appendChild(playlistAdd);
          resultsContainer.appendChild(thisRow);
       }
    }
+}
+function generateSongRow(thisRow, apiSong){
+   thisRow.classList.add("browse-list-row");
+   if (lastListRowColorOne) {
+      thisRow.classList.add("browse-list-row-color-two");
+      lastListRowColorOne = false;
+   }
+   else {
+      thisRow.classList.add("browse-list-row-color-one");
+      lastListRowColorOne = true;
+   }
+   let titleText = makePNode(apiSong.title);
+   thisRow.setAttribute('id', apiSong.song_id);
+   titleText.addEventListener("mouseup", function(){ //Button for visiting song page from list row 
+      refreshSongPage(this);
+      visitPage("song-view-page");
+   });
+
+   thisRow.appendChild(titleText);
+   thisRow.appendChild(makePNode(apiSong.artist.name));
+   thisRow.appendChild(makePNode(apiSong.year));
+   thisRow.appendChild(makePNode(apiSong.genre.name.toUpperCase()));
+   thisRow.appendChild(makePNode(apiSong.details.popularity));
 }
 function initializeButtons() {
    /* Header navigation button functionality */
@@ -128,6 +140,7 @@ function initializeButtons() {
    });
 
    document.getElementById("header-playlist-button").addEventListener("mouseup", function () {
+      refreshPlaylistPage();
       visitPage("playlist-page");
    });
 
@@ -169,11 +182,10 @@ function initializeButtons() {
       console.log("hiding");
    });
 }
-
 function refreshSongPage(showSong){
-   let viewSong = songsAPI.find(songSearch => Number(songSearch.song_id) == Number(showSong.getAttribute('id')));
+   let viewSong = songsAPI.find(songSearch => Number(songSearch.song_id) == Number(showSong.parentElement.getAttribute('id')));
    console.log("[song name: " + showSong.textContent.toString() + "]");
-   console.log("[song id: " + showSong.getAttribute('id') + "]");
+   console.log("[song id: " + showSong.parentElement.getAttribute('id') + "]");
    console.log("[search result title: " + viewSong.title + "]");
    console.log("[search result id: " + viewSong.song_id + "]");
    console.log("Visiting page");
@@ -243,7 +255,15 @@ function refreshSongPage(showSong){
       }
    }
 }
-
+function refreshPlaylistPage(){
+   let resultsContainer = getById("playlist-list");
+   resultsContainer.replaceChildren(); //deletes all previous rows
+   for(let song of playlistSongs){
+      let thisRow = document.createElement("li");
+      generateSongRow(thisRow, song);
+      resultsContainer.appendChild(thisRow);
+   }
+}
 function visitPage(pageName){
    pageName = "." + pageName.toString();
    query(".search-page-container").classList.add("hidden");

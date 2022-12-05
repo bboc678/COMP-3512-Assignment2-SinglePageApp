@@ -271,6 +271,34 @@ header {
     background-color: #464646;
     justify-content: space-between;
 }
+#playlist-container {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    margin: auto;
+    width: 100vw;
+}
+#playlist-container h1 {
+    text-align: center;
+    background-color: #363636;
+    padding: 0.5em 0em;
+    color: white;
+    width: 90vw;
+    margin: auto;
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+#playlist-list {
+    margin: auto;
+    width: 90vw;
+    padding: 0em 0em 1em 0em;
+    background-color: #555555;
+}
+#playlist-list li {
+    margin: 1em 1em;
+}
 /*
 #song-details-bottom{
     display: flex;
