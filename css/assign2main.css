@@ -33,8 +33,20 @@ header {
 #logo {
     color: dodgerblue;
     margin: 0;
-    width: 600px;
+    margin-left: 1em;
+    margin-right: 10em;
+    width: 30em;
+    height: 90%;
+    padding: 0;
+    background-color: #363636;
+    text-align: center;
     
+}
+#logo h1{
+    margin: 0.4em 0em 0em 0em;
+}
+#logo h2{
+    color: #afcbf3;
 }
 .header-buttons {
     display: flex;
@@ -186,6 +198,9 @@ header {
     padding: 0;
     margin: 1% 0 0 0;
 }
+#browse-list::-webkit-scrollbar {
+    display: none;
+}
 /* List header */
 #browse-list-header{
     color: #afcbf3;
@@ -299,16 +314,25 @@ header {
 #playlist-list li {
     margin: 1em 1em;
 }
-/*
-#song-details-bottom{
-    display: flex;
-    flex-direction: row;
-    background-color: white;
-    justify-content: space-between;
-    margin: 2em;
-    padding: 1em;
+#song-view-title {
+    font-size:x-large;
 }
-*/
+#song-view-artist {
+    font-size:medium;
+}
+#song-view-year {
+    font-size:small;
+}
+#song-view-genre {
+    font-size:small;
+}
+#song-view-duration {
+    font-size:small;
+}
+.green {
+    color: green;
+}
 .hidden{
     display: none;
+    visibility: hidden;
 }

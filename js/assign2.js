@@ -33,8 +33,8 @@ function initializeAPI() {
    let songsAPIDataString = localStorage.getItem("songsAPIData");
    if (songsAPIDataString == null) { // API has not yet been fetched
       /* url of song api --- https versions hopefully a little later this semester */
-      //const api = 'http://www.randyconnolly.com/funwebdev/3rd/api/music/songs-nested.php'; //real API
-      const api = 'js/sample-songs.json'; //testing API
+      const api = 'http://www.randyconnolly.com/funwebdev/3rd/api/music/songs-nested.php'; //real API
+      //const api = 'js/sample-songs.json'; //testing API
       fetch(api)
          .then(response => {
             if (response.ok) {
@@ -50,14 +50,13 @@ function initializeAPI() {
          .then(data => {
             songsAPIDataString = JSON.stringify(data);
             localStorage.setItem("songsAPIData", songsAPIDataString);
-            document.getElementById('logo').appendChild(document.createTextNode(" (fetching API)"));
+            //document.getElementById('logo').appendChild(document.createTextNode(" (fetching API)"));
             console.log("Fetching API");
          });
    } 
    else {
-      document.getElementById('logo').appendChild(document.createTextNode(" (using existing data)"));
+      //document.getElementById('logo').appendChild(document.createTextNode(" (using existing data)"));
       console.log("Using existing data");
-      //console.log(songsAPIDataString);
    }
    songsAPI = JSON.parse(songsAPIDataString);
 }
@@ -93,8 +92,9 @@ function refreshSearchBrowsePage(searchType, search){
          let thisRow = document.createElement("li");
          generateSongRow(thisRow, apiSong);
          let playlistAdd = makePNode("Add");
-         playlistAdd.setAttribute('id', "add-" + apiSong.song_id);
+
          playlistAdd.addEventListener("mouseup", function(){ //Button for adding song to playlist from row
+            this.classList.add("green");
             let addId = this.parentElement.getAttribute('id');
             let newPlaySong = songsAPI.find(song => song.song_id == addId);
             playlistSongs.push(newPlaySong);
@@ -104,6 +104,9 @@ function refreshSearchBrowsePage(searchType, search){
          resultsContainer.appendChild(thisRow);
       }
    }
+}
+function restoreAddButton(thisButton){
+   thisButton.classList.remove("green");
 }
 function generateSongRow(thisRow, apiSong){
    thisRow.classList.add("browse-list-row");
@@ -133,10 +136,6 @@ function initializeButtons() {
    document.getElementById("header-search-button").addEventListener("mouseup", function () {
       refreshSearchBrowsePage(0, '');
       visitPage("search-page-container");
-   });
-
-   document.getElementById("header-song-view-button").addEventListener("mouseup", function () {
-      visitPage("song-view-page");
    });
 
    document.getElementById("header-playlist-button").addEventListener("mouseup", function () {
@@ -189,24 +188,11 @@ function refreshSongPage(showSong){
    console.log("[search result title: " + viewSong.title + "]");
    console.log("[search result id: " + viewSong.song_id + "]");
    console.log("Visiting page");
-   /*
-   let container = query(".song-view-page");
 
-   let songTitle = makePNode(viewSong.title);
-   container.appendChild(songTitle);
-   let artistName = makePNode(viewSong.artist.name);
-   container.appendChild(artistName);
-   let genreName = makePNode(viewSong.genre.name);
-   container.appendChild(genreName);
-   let popularity = makePNode(viewSong.details.popularity);
-   container.appendChild(popularity);
-   */
    let durationMinutes = (viewSong.details.duration / 60); //Gives minutes with decimal representing seconds
    let durationSeconds = Math.floor((durationMinutes - Math.floor(durationMinutes)) * 60); //Copies decimal only * 60
    durationMinutes = Math.floor(durationMinutes);
    let durationText = durationMinutes.toString() + " minutes, " + durationSeconds.toString() + " seconds";
-   //let duration = makePNode(durationText);
-   //container.appendChild(duration);
 
    getById("song-view-title").textContent = viewSong.title;
    getById("song-view-artist").textContent = viewSong.artist.name;
@@ -269,6 +255,12 @@ function visitPage(pageName){
    query(".search-page-container").classList.add("hidden");
    query(".song-view-page").classList.add("hidden");
    query(".playlist-page").classList.add("hidden");
+   if(pageName == ".playlist-page" || pageName == ".song-view-page"){
+      getById("header-search-button").classList.remove("hidden");
+   }
+   else{
+      getById("header-search-button").classList.add("hidden");
+   }
    query(pageName).classList.remove("hidden");
 }
 
