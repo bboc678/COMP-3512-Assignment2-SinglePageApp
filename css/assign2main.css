@@ -1,5 +1,5 @@
 html {
-
+    background-color: #222222;
 
 }
 body {
@@ -42,6 +42,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     background-color: darkgray;
     width: 10vw;
     height: 6vh;
@@ -57,7 +58,6 @@ header {
 main {
     display: flex;
     margin-top: 50px;
-    color: orange;
 }
 .search-page-container {
     display: flex;
@@ -82,6 +82,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: purple;
 }
 #search-options{
     display: flex;
@@ -122,7 +123,8 @@ main {
     box-shadow: 3px 3px #333333;
 }
 #browse-search-results {
-    background-color: #888888;
+    background-color: #333333;;
+    color: white;
     padding-top: 50px;
     padding-bottom: 50px;
     margin-right: 10px;
@@ -137,66 +139,96 @@ main {
 }
 /* List header */
 #browse-list-header{
+    color: orange;
     display: flex;
     flex-wrap: nowrap;
-    background-color: #a0a0a0;
-    padding: 0;
+    background-color: #444444;
+    padding: 1vw;
     justify-content: space-around;
+    justify-items: center;
 }
 /* List row */
 .browse-list-row{
     color: whitesmoke;
     display: flex;
     flex-wrap: nowrap;
-    background-color: #b8b8b8;
-    padding: 5px;
+    background-color: #444444;
+    padding: 1vw;
     margin-top: 5px;
     justify-content: space-around;
     align-items: center;
 }
 #browse-list-header h2 {
+    text-align: center;
     width: 18%;
 }
 .browse-list-row p{
+    text-align: center;
     width: 18%;
-    justify-items: center;
 }
 .browse-list-row-color-one{
     color: rgba(255, 255, 255);
 }
 .browse-list-row-color-two{
-    color: rgb(238, 231, 223);
+    color: rgb(240, 240, 240);
 }
-
-
-
-/* BACKGROUND GRADIENTS FROM ASSIGN01
-#home-top-genres{
-    background-image: linear-gradient(rgb(238, 255, 238), rgb(198, 198, 255));
+.song-view-page{
+    margin: auto;
 }
-#home-top-artists{
-    background-image: linear-gradient(rgb(238, 246, 255), rgb(255, 249, 198));
+#song-view-container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    text-align: center;
 }
-#home-most-popular-songs{
-    background-image: linear-gradient(rgb(255, 238, 245), rgb(232, 198, 255));
+#song-view-container h1{
+    text-align: center;
+    background-color: green;
 }
-#home-one-hit-wonders{
-    background-image: linear-gradient(rgb(238, 244, 255), rgb(198, 198, 255));
+#song-view-container p{
+    padding: 0em;
 }
-#home-longest-acoustic-songs{
-    background-image: linear-gradient(rgb(238, 255, 238), rgb(198, 255, 201));
+#song-view-analysis {
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+    background-color: blue;
 }
-#home-at-the-club{
-    background-image: linear-gradient(rgb(221, 171, 224), rgb(159, 231, 219));
+#song-view-analysis h1{
+    margin: 0;
+    padding: 0;
+    background-color: red;
 }
-#home-running-songs{
-    background-image: linear-gradient(rgb(255, 255, 238), rgb(198, 255, 247));
+#song-view-analysis ul li{
+    margin: 1em;
+    padding: 0;
+    background-color: black;
 }
-#home-studying{
-    background-image: linear-gradient(rgb(255, 253, 238), rgb(255, 235, 198));
+#song-view-top{
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    justify-content: space-between;
+    margin: 2em;
+    padding: 1em 2em 1em 2em;
+}
+#song-view-bottom{
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    justify-content: space-between;
+}
+/*
+#song-details-bottom{
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    justify-content: space-between;
+    margin: 2em;
+    padding: 1em;
 }
 */
-
 .hidden{
     display: none;
 }
