@@ -19,24 +19,30 @@
       <main>
         <div class="search-page-container">
           <section id="basic-song-search">
-            <h1>Basic Song Search</h1>
+            <h1>FILTER SONGS</h1>
             <section id="search-options">
               <form id="search-radio-buttons">
-                <input type="radio" id="name-search" name="search-choice" value="1" checked>
-                <label for="name-search">Name</label>
+                <div>
+                  <input type="radio" id="name-search" name="search-choice" value="1" checked>
+                  <label for="name-search">Name</label>
+                </div>
                 <br>
-                <input type="radio" id="artist-search" name="search-choice" value="2">
-                <label for="artist-search">Artist</label>
+                <div>
+                  <input type="radio" id="artist-search" name="search-choice" value="2">
+                  <label for="artist-search">Artist</label>
+                </div>
                 <br>
-                <input type="radio" id="genre-search" name="search-choice" value="3">
-                <label for="genre-search">Genre</label>
+                <div>
+                  <input type="radio" id="genre-search" name="search-choice" value="3">
+                  <label for="genre-search">Genre</label>
+                </div>
               </form>
               <form id="search-input-boxes">
-                <input type="text" id="search-option-1" name="search-choice" value="">
+                <div><input type="text" id="search-option-1" name="search-choice" value=""></div>
                 <br>
-                <input type="text" id="search-option-2" name="search-choice" value="">
+                <div><input type="text" id="search-option-2" name="search-choice" value=""></div>
                 <br>
-                <input type="text" id="search-option-3" name="search-choice" value="">
+                <div><input type="text" id="search-option-3" name="search-choice" value=""></div>
               </form>
             </section>
             <div class="search-buttons">
@@ -45,13 +51,13 @@
             </div>
           </section>
           <section id="browse-search-results">
-            <h1>Browse / Search Results</h1>
+            <h1 id="browse-container-header">SONG BROWSER</h1>
             <div id="browse-list-header">
-              <h2>Title</h2>
-              <h2>Artist</h2>
-              <h2>Year</h2>
-              <h2>Genre</h2>
-              <h2>Popularity</h2>
+              <h2>SONG</h2>
+              <h2>ARTIST</h2>
+              <h2>YEAR</h2>
+              <h2>GENRE</h2>
+              <h2>POPULARITY</h2>
             </div>
             <ul id="browse-list">
             </ul>
